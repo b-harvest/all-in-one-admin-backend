@@ -1,0 +1,14 @@
+[Unit]
+Description=Monitoring-server
+After=network-online.target
+[Service]
+User=devops-test
+ExecStart=/home/ubuntu/all-in-one-admin-backend/monitoring-server
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=monitoring-server
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+[Install]
+WantedBy=multi-user.target

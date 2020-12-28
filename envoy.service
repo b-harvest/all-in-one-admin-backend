@@ -1,0 +1,14 @@
+[Unit]
+Description=Envoy
+After=network-online.target
+[Service]
+User=devops-test
+ExecStart=envoy -c /home/ubuntu/all-in-one-admin-backend/envoy.yaml
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=envoy
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+[Install]
+WantedBy=multi-user.target
