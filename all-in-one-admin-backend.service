@@ -1,12 +1,12 @@
 [Unit]
-Description=Monitoring-server
+Description=all-in-one-admin-backend
 After=network-online.target
 [Service]
-User=devops-test
+User=ubuntu
 ExecStart=/home/ubuntu/all-in-one-admin-backend/all-in-one-admin-backend
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=monitoring-server
+SyslogIdentifier=all-in-one-admin-backend
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
