@@ -1,4 +1,4 @@
-module monitoring_server
+module all-in-one-admin-backend
 
 go 1.15
 
