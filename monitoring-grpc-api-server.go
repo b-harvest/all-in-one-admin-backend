@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	pb "monitoring_server/config"
+	pb "github.com/b-harvest/all-in-one-admin-backend/config"
 	"net"
 	"strings"
 	"time"
