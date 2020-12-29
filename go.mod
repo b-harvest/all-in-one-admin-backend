@@ -1,4 +1,4 @@
-module all-in-one-admin-backend
+module github.com/b-harvest/all-in-one-admin-backend
 
 go 1.15
 
