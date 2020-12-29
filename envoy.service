@@ -2,7 +2,7 @@
 Description=Envoy
 After=network-online.target
 [Service]
-User=devops-test
+User=ubuntu
 ExecStart=envoy -c /home/ubuntu/all-in-one-admin-backend/envoy.yaml
 StandardOutput=syslog
 StandardError=syslog
