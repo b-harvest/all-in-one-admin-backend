@@ -3,7 +3,7 @@ Description=Monitoring-server
 After=network-online.target
 [Service]
 User=devops-test
-ExecStart=/home/ubuntu/all-in-one-admin-backend/monitoring-server
+ExecStart=/home/ubuntu/all-in-one-admin-backend/all-in-one-admin-backend
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=monitoring-server
