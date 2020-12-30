@@ -44,6 +44,10 @@ func alarm_health_check() {
 func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
 	status, err := httpClient.Status()
+	if err != nil {
+		println(err.Error())
+		return &pb.SignInfoResponse{Status: "ERROR"}, err
+	}
 	commit_height := int64(status.SyncInfo.LatestBlockHeight)
 	commit, err := httpClient.Commit(&commit_height)
 	precommit := false
