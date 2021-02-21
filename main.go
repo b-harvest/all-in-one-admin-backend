@@ -5,8 +5,8 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"log"
 	pb "github.com/b-harvest/all-in-one-admin-backend/config"
+	"log"
 	"net"
 	"strings"
 	"time"
@@ -41,7 +41,7 @@ func alarm_health_check() {
 		fmt.Println("Hello world!")
 	}
 }
-func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
+func (s *server) GetvalidatorSignInfo_v2(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
 	status, err := httpClient.Status(context.Background())
 	if err != nil {
@@ -49,7 +49,58 @@ func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoReques
 		return &pb.SignInfoResponse{Status: "ERROR"}, err
 	}
 	commit_height := int64(status.SyncInfo.LatestBlockHeight)
-	commit, err := httpClient.Commit(context.Background(),&commit_height)
+	commit, err := httpClient.Commit(context.Background(), &commit_height)
+	precommit := false
+	for _, value := range commit.SignedHeader.Commit.Signatures {
+		validatoraddress := hex.EncodeToString(value.ValidatorAddress)
+		if strings.ToUpper(validatoraddress) == in.GetValidatorAddress() {
+			log.Printf("precommit: %s", value.ValidatorAddress)
+			log.Printf("precommit: %s", in.GetValidatorAddress())
+			precommit = true
+		}
+	}
+
+	if err != nil {
+		println(err.Error())
+		return &pb.SignInfoResponse{Status: "ERROR"}, err
+	}
+	var u = SignInfo{
+		status.SyncInfo.LatestBlockHeight,
+		precommit,
+	}
+	marshal_u, _ := json.Marshal(u)
+	log.Printf("Received profile: %v", in.GetNodeURI())
+	return &pb.SignInfoResponse{Status: string(marshal_u)}, nil
+}
+
+func (s *server) GetnodeStatus_v2(ctx context.Context, in *pb.StatusRequest) (*pb.StatusResponse, error) {
+	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
+	status, err := httpClient.Status(context.Background())
+
+	if err != nil {
+		println(err.Error())
+		return &pb.StatusResponse{Status: "ERROR"}, err
+	}
+
+	var u = StatusInfo{
+		status.SyncInfo.LatestBlockHeight,
+		status.SyncInfo.CatchingUp,
+		status.NodeInfo.Moniker,
+	}
+	marshal_u, _ := json.Marshal(u)
+	log.Printf("Received profile: %v", in.GetNodeURI())
+	return &pb.StatusResponse{Status: string(marshal_u)}, nil
+}
+
+func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
+	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
+	status, err := httpClient.Status()
+	if err != nil {
+		println(err.Error())
+		return &pb.SignInfoResponse{Status: "ERROR"}, err
+	}
+	commit_height := int64(status.SyncInfo.LatestBlockHeight)
+	commit, err := httpClient.Commit(&commit_height)
 	precommit := false
 	for _, value := range commit.SignedHeader.Commit.Signatures {
 		validatoraddress := hex.EncodeToString(value.ValidatorAddress)
@@ -75,7 +126,7 @@ func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoReques
 
 func (s *server) GetnodeStatus(ctx context.Context, in *pb.StatusRequest) (*pb.StatusResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
-	status, err := httpClient.Status(context.Background())
+	status, err := httpClient.Status()
 
 	if err != nil {
 		println(err.Error())
