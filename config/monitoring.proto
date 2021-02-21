@@ -6,8 +6,6 @@ package monitoring;
 service Monitoring {
     rpc GetnodeStatus (StatusRequest) returns (StatusResponse);
     rpc GetvalidatorSignInfo (SignInfoRequest) returns (SignInfoResponse);
-    rpc GetnodeStatus_v2 (StatusRequest) returns (StatusResponse);
-    rpc GetvalidatorSignInfo_v2 (SignInfoRequest) returns (SignInfoResponse);
 }
 
 // 요청

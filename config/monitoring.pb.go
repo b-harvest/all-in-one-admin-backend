@@ -247,7 +247,7 @@ var file_monitoring_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6e, 0x6f, 0x64, 0x65, 0x55, 0x52, 0x49, 0x22, 0x2a, 0x0a,
 	0x10, 0x53, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xc8, 0x02, 0x0a, 0x0a, 0x4d, 0x6f,
+	0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0xa7, 0x01, 0x0a, 0x0a, 0x4d, 0x6f,
 	0x6e, 0x69, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x12, 0x46, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x6e,
 	0x6f, 0x64, 0x65, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x19, 0x2e, 0x6d, 0x6f, 0x6e, 0x69,
 	0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71,
@@ -258,17 +258,7 @@ var file_monitoring_proto_rawDesc = []byte{
 	0x6f, 0x72, 0x69, 0x6e, 0x67, 0x2e, 0x53, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x6d, 0x6f, 0x6e, 0x69, 0x74, 0x6f, 0x72, 0x69,
 	0x6e, 0x67, 0x2e, 0x53, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x49, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x6e, 0x6f, 0x64, 0x65, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x5f, 0x76, 0x32, 0x12, 0x19, 0x2e, 0x6d, 0x6f, 0x6e, 0x69, 0x74, 0x6f,
-	0x72, 0x69, 0x6e, 0x67, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x6d, 0x6f, 0x6e, 0x69, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x2e,
-	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x54,
-	0x0a, 0x17, 0x47, 0x65, 0x74, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x53, 0x69,
-	0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x5f, 0x76, 0x32, 0x12, 0x1b, 0x2e, 0x6d, 0x6f, 0x6e, 0x69,
-	0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x2e, 0x53, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x6d, 0x6f, 0x6e, 0x69, 0x74, 0x6f, 0x72,
-	0x69, 0x6e, 0x67, 0x2e, 0x53, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x73, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -293,14 +283,10 @@ var file_monitoring_proto_goTypes = []interface{}{
 var file_monitoring_proto_depIdxs = []int32{
 	0, // 0: monitoring.Monitoring.GetnodeStatus:input_type -> monitoring.StatusRequest
 	2, // 1: monitoring.Monitoring.GetvalidatorSignInfo:input_type -> monitoring.SignInfoRequest
-	0, // 2: monitoring.Monitoring.GetnodeStatus_v2:input_type -> monitoring.StatusRequest
-	2, // 3: monitoring.Monitoring.GetvalidatorSignInfo_v2:input_type -> monitoring.SignInfoRequest
-	1, // 4: monitoring.Monitoring.GetnodeStatus:output_type -> monitoring.StatusResponse
-	3, // 5: monitoring.Monitoring.GetvalidatorSignInfo:output_type -> monitoring.SignInfoResponse
-	1, // 6: monitoring.Monitoring.GetnodeStatus_v2:output_type -> monitoring.StatusResponse
-	3, // 7: monitoring.Monitoring.GetvalidatorSignInfo_v2:output_type -> monitoring.SignInfoResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
+	1, // 2: monitoring.Monitoring.GetnodeStatus:output_type -> monitoring.StatusResponse
+	3, // 3: monitoring.Monitoring.GetvalidatorSignInfo:output_type -> monitoring.SignInfoResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -395,8 +381,6 @@ const _ = grpc.SupportPackageIsVersion6
 type MonitoringClient interface {
 	GetnodeStatus(ctx context.Context, in *StatusRequest, opts ...grpc.CallOption) (*StatusResponse, error)
 	GetvalidatorSignInfo(ctx context.Context, in *SignInfoRequest, opts ...grpc.CallOption) (*SignInfoResponse, error)
-	GetnodeStatusV2(ctx context.Context, in *StatusRequest, opts ...grpc.CallOption) (*StatusResponse, error)
-	GetvalidatorSignInfoV2(ctx context.Context, in *SignInfoRequest, opts ...grpc.CallOption) (*SignInfoResponse, error)
 }
 
 type monitoringClient struct {
@@ -425,30 +409,10 @@ func (c *monitoringClient) GetvalidatorSignInfo(ctx context.Context, in *SignInf
 	return out, nil
 }
 
-func (c *monitoringClient) GetnodeStatusV2(ctx context.Context, in *StatusRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
-	out := new(StatusResponse)
-	err := c.cc.Invoke(ctx, "/monitoring.Monitoring/GetnodeStatus_v2", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *monitoringClient) GetvalidatorSignInfoV2(ctx context.Context, in *SignInfoRequest, opts ...grpc.CallOption) (*SignInfoResponse, error) {
-	out := new(SignInfoResponse)
-	err := c.cc.Invoke(ctx, "/monitoring.Monitoring/GetvalidatorSignInfo_v2", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // MonitoringServer is the server API for Monitoring service.
 type MonitoringServer interface {
 	GetnodeStatus(context.Context, *StatusRequest) (*StatusResponse, error)
 	GetvalidatorSignInfo(context.Context, *SignInfoRequest) (*SignInfoResponse, error)
-	GetnodeStatusV2(context.Context, *StatusRequest) (*StatusResponse, error)
-	GetvalidatorSignInfoV2(context.Context, *SignInfoRequest) (*SignInfoResponse, error)
 }
 
 // UnimplementedMonitoringServer can be embedded to have forward compatible implementations.
@@ -460,12 +424,6 @@ func (*UnimplementedMonitoringServer) GetnodeStatus(context.Context, *StatusRequ
 }
 func (*UnimplementedMonitoringServer) GetvalidatorSignInfo(context.Context, *SignInfoRequest) (*SignInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetvalidatorSignInfo not implemented")
-}
-func (*UnimplementedMonitoringServer) GetnodeStatusV2(context.Context, *StatusRequest) (*StatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetnodeStatusV2 not implemented")
-}
-func (*UnimplementedMonitoringServer) GetvalidatorSignInfoV2(context.Context, *SignInfoRequest) (*SignInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetvalidatorSignInfoV2 not implemented")
 }
 
 func RegisterMonitoringServer(s *grpc.Server, srv MonitoringServer) {
@@ -508,42 +466,6 @@ func _Monitoring_GetvalidatorSignInfo_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Monitoring_GetnodeStatusV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MonitoringServer).GetnodeStatusV2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/monitoring.Monitoring/GetnodeStatusV2",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MonitoringServer).GetnodeStatusV2(ctx, req.(*StatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Monitoring_GetvalidatorSignInfoV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MonitoringServer).GetvalidatorSignInfoV2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/monitoring.Monitoring/GetvalidatorSignInfoV2",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MonitoringServer).GetvalidatorSignInfoV2(ctx, req.(*SignInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Monitoring_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "monitoring.Monitoring",
 	HandlerType: (*MonitoringServer)(nil),
@@ -555,14 +477,6 @@ var _Monitoring_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetvalidatorSignInfo",
 			Handler:    _Monitoring_GetvalidatorSignInfo_Handler,
-		},
-		{
-			MethodName: "GetnodeStatus_v2",
-			Handler:    _Monitoring_GetnodeStatusV2_Handler,
-		},
-		{
-			MethodName: "GetvalidatorSignInfo_v2",
-			Handler:    _Monitoring_GetvalidatorSignInfoV2_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
