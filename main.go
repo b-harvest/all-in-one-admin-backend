@@ -5,11 +5,12 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	pb "github.com/b-harvest/all-in-one-admin-backend/config"
 	"log"
 	"net"
 	"strings"
 	"time"
+
+	pb "github.com/b-harvest/all-in-one-admin-backend/config"
 
 	"github.com/tendermint/tendermint/crypto"
 	client "github.com/tendermint/tendermint/rpc/client/http"
@@ -94,13 +95,13 @@ func (s *server) GetnodeStatus_v2(ctx context.Context, in *pb.StatusRequest) (*p
 
 func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
-	status, err := httpClient.Status()
+	status, err := httpClient.Status(ctx)
 	if err != nil {
 		println(err.Error())
 		return &pb.SignInfoResponse{Status: "ERROR"}, err
 	}
 	commit_height := int64(status.SyncInfo.LatestBlockHeight)
-	commit, err := httpClient.Commit(&commit_height)
+	commit, err := httpClient.Commit(ctx, &commit_height)
 	precommit := false
 	for _, value := range commit.SignedHeader.Commit.Signatures {
 		validatoraddress := hex.EncodeToString(value.ValidatorAddress)
@@ -126,7 +127,7 @@ func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoReques
 
 func (s *server) GetnodeStatus(ctx context.Context, in *pb.StatusRequest) (*pb.StatusResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
-	status, err := httpClient.Status()
+	status, err := httpClient.Status(ctx)
 
 	if err != nil {
 		println(err.Error())
