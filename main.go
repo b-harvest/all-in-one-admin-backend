@@ -45,13 +45,13 @@ func alarm_health_check() {
 
 func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoRequest) (*pb.SignInfoResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
-	status, err := httpClient.Status(ctx)
+	status, err := httpClient.Status()
 	if err != nil {
 		println(err.Error())
 		return &pb.SignInfoResponse{Status: "ERROR"}, err
 	}
 	commit_height := int64(status.SyncInfo.LatestBlockHeight)
-	commit, err := httpClient.Commit(ctx, &commit_height)
+	commit, err := httpClient.Commit(&commit_height)
 	precommit := false
 	for _, value := range commit.SignedHeader.Commit.Signatures {
 		validatoraddress := hex.EncodeToString(value.ValidatorAddress)
@@ -77,7 +77,7 @@ func (s *server) GetvalidatorSignInfo(ctx context.Context, in *pb.SignInfoReques
 
 func (s *server) GetnodeStatus(ctx context.Context, in *pb.StatusRequest) (*pb.StatusResponse, error) {
 	httpClient, _ := client.NewWithTimeout(in.GetNodeURI(), "/websocket", 3)
-	status, err := httpClient.Status(ctx)
+	status, err := httpClient.Status()
 
 	if err != nil {
 		println(err.Error())
@@ -96,7 +96,7 @@ func (s *server) GetnodeStatus(ctx context.Context, in *pb.StatusRequest) (*pb.S
 
 func main() {
 	go alarm_health_check()
-	lis, err := net.Listen("tcp", ":8089")
+	lis, err := net.Listen("tcp", ":8088")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
